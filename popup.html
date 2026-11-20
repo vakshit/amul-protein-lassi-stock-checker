@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      color: #1a1a1a;
+    }
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .label { color: #666; }
+    .value { font-weight: 600; }
+    .value.in-stock { color: #16a34a; }
+    .value.out-of-stock { color: #dc2626; }
+    .value.unknown { color: #9ca3af; }
+    .value.monitoring { color: #2563eb; }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #startBtn {
+      background: #2563eb;
+      color: white;
+    }
+    #startBtn:hover { background: #1d4ed8; }
+    #stopBtn {
+      background: #dc2626;
+      color: white;
+    }
+    #stopBtn:hover { background: #b91c1c; }
+    .hidden { display: none; }
+    .note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #888;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <h2>Amul Stock Checker</h2>
+
+  <div class="status-row">
+    <span class="label">Monitoring</span>
+    <span class="value" id="monitorStatus">-</span>
+  </div>
+  <div class="status-row">
+    <span class="label">Stock Status</span>
+    <span class="value" id="stockStatus">-</span>
+  </div>
+  <div class="status-row">
+    <span class="label">Last Check</span>
+    <span class="value" id="lastCheck">-</span>
+  </div>
+
+  <button id="startBtn">Start Monitoring</button>
+  <button id="stopBtn" class="hidden">Stop Monitoring</button>
+
+  <div class="note">
+    Checks every 30s by reloading the product tab.
+    When in stock → auto adds to cart → redirects to checkout.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

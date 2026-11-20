@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Amul Stock Checker",
+  "version": "1.0",
+  "description": "Monitors Amul product page and auto-adds to cart when back in stock",
+  "permissions": ["alarms", "notifications", "storage"],
+  "host_permissions": ["https://shop.amul.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://shop.amul.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
